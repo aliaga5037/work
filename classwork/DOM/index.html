@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="script.js"></script>
+		<style>
+			.second{
+				height: 100px;
+				background: green;
+				float: left;
+				margin: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+		function yarat(mw, say,olcu,margin,bg) {
+		var first = document.createElement("div");
+		first.setAttribute("class", "first");
+		first.style.width = mw + "px"
+		first.style.background = bg,
+		document.body.appendChild(first)
+		for (var i = 0  ; i <= say; i++) {
+		var x = document.createElement("div");
+		x.setAttribute("class","second");
+		x.setAttribute("id", "g")
+		x.style.margin = margin + "px"
+		x.style.width = (mw / olcu- margin*2) + "px" 
+		first.appendChild(x)
+		}		
+		}
+		yarat(1000 , 50 , 5 , 10, "red");
+
+		
+
+
+
+
+
+		</script>
+	</body>
+</html>

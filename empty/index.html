@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="script.js"></script>	
+	</head>
+<body>
+	<script>
+
+		var images = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"]
+	
+		var main = document.createElement("div");
+		main.setAttribute("class", "main");
+		document.body.appendChild(main);
+
+		var head = document.createElement("div");
+		head.setAttribute("id", "head");
+		main.appendChild(head);		
+
+
+
+		var button = document.createElement("button");
+		button.setAttribute("id", "left");
+		button.setAttribute("onclick", "prev()");
+		button.style.cssFloat = 'left'
+		head.appendChild(button);
+
+		function prev() {
+			j--;
+			return j;
+		};
+		
+
+		var button = document.createElement("button");
+		button.setAttribute("id", "right");
+		button.setAttribute("onclick", "next()");
+		button.style.cssFloat = 'right'
+		head.appendChild(button);
+
+		function next() {
+			j++;
+			return j;
+		};
+		
+
+		var himage = document.createElement("img");
+		himage.setAttribute("src",images[j]);
+		himage.style.width = "inherit";
+		himage.style.height = "inherit";
+		head.appendChild(himage);
+
+
+	</script>
+</body>
+</html>

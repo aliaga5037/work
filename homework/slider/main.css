@@ -1,0 +1,28 @@
+.main{
+	margin: 0 auto;
+	width: 800px;
+	height: 500px;
+	border: 1px solid black;
+		overflow: hidden;
+}
+#head{
+	width:inherit;
+	height: 400px;
+}
+#foot{
+	height: 100px;
+	padding-top: 5px;
+	width: 1330px;
+
+}
+.fImage{
+	height: 72px;
+	width: 72px;
+	float: left;
+}
+
+button{
+	z-index: 3;
+	height: 15px;
+	width: 15px;
+}

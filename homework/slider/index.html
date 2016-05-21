@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="main.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+	<script>
+		var images = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"]
+		var j=0
+		function prev() {
+			j--;
+			yarat()
+		};
+		function next() {
+			j++;
+			yarat()		};
+
+		function yarat( margin, bg) {
+		var main = document.createElement("div");
+		main.setAttribute("class", "main");
+		document.body.appendChild(main);
+
+		var head = document.createElement("div");
+		head.setAttribute("id", "head");
+		main.appendChild(head);		
+
+		var button = document.createElement("button");
+		button.setAttribute("id", "left");
+		button.setAttribute("onclick", "prev()");
+		button.style.cssFloat = 'left'
+		head.appendChild(button);
+
+		
+		
+
+		var button = document.createElement("button");
+		button.setAttribute("id", "right");
+		button.setAttribute("onclick", "next()");
+		button.style.cssFloat = 'right'
+		head.appendChild(button);
+
+		
+
+		var himage = document.createElement("img");
+		himage.setAttribute("src",images[j]);
+		himage.style.width = "inherit";
+		himage.style.height = "inherit";
+		head.appendChild(himage);
+
+		var foot = document.createElement("div");
+		foot.setAttribute("id", "foot");
+		main.appendChild(foot);
+
+		for (var i = 0  ; i < images.length ; i++) {
+		var fImage = document.createElement("div");
+		fImage.setAttribute("class","fImage");
+		fImage.style.margin = margin + "px";
+		fImage.style.background = bg;
+		foot.appendChild(fImage);
+
+		var image = document.createElement("img");
+		image.setAttribute("src",images[i]);
+		image.style.width = "inherit";
+		image.style.height = "inherit";
+		fImage.appendChild(image);
+		}
+		}
+		yarat(8,"white");
+
+		
+		
+		
+	</script>
+	</body>
+</html>
