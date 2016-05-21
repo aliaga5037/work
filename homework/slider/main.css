@@ -8,6 +8,7 @@
 #head{
 	width:inherit;
 	height: 400px;
+
 }
 #foot{
 	height: 100px;
@@ -25,4 +26,6 @@ button{
 	z-index: 3;
 	height: 15px;
 	width: 15px;
+	position: relative;
+	top: 250px;
 }

@@ -8,14 +8,8 @@
 	<body>
 	<script>
 		var images = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"]
-		var j=0
-		function prev() {
-			j--;
-			yarat()
-		};
-		function next() {
-			j++;
-			yarat()		};
+
+		var j = 0
 
 		function yarat( margin, bg) {
 		var main = document.createElement("div");
@@ -28,23 +22,37 @@
 
 		var button = document.createElement("button");
 		button.setAttribute("id", "left");
-		button.setAttribute("onclick", "prev()");
 		button.style.cssFloat = 'left'
 		head.appendChild(button);
 
-		
-		
-
 		var button = document.createElement("button");
 		button.setAttribute("id", "right");
-		button.setAttribute("onclick", "next()");
 		button.style.cssFloat = 'right'
 		head.appendChild(button);
 
-		
+		document.getElementById("right").onclick = next;
+		function next() {
+			j++
+			if(j>images.length-1){
+				j=0
+			}
+		document.getElementById("ss").setAttribute("src", images[j])
+		}
+		document.getElementById("left").onclick = prev;
+		function prev() {
+			j--
+			if(j<=1){
+				j=images.length-1
+			}
+
+		document.getElementById("ss").setAttribute("src", images[j])
+		}
+
+
 
 		var himage = document.createElement("img");
 		himage.setAttribute("src",images[j]);
+		himage.setAttribute("id", "ss")
 		himage.style.width = "inherit";
 		himage.style.height = "inherit";
 		head.appendChild(himage);
@@ -68,10 +76,6 @@
 		}
 		}
 		yarat(8,"white");
-
-		
-		
-		
 	</script>
 	</body>
 </html>
