@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="main.css ">
+	</head>
+	<body onresize="myFunction()">
+		<div id="head">
+			<ul>
+				<li><a href="#a" onclick="myClick(this)">bir</a></li>
+				<li><a href="#b" onclick="myClick(this)">iki</a></li>
+				<li><a href="#c" onclick="myClick(this)">uc</a></li>
+				<li><a href="#d" onclick="myClick(this)">dord</a></li>
+				<li><a href="#e" onclick="myClick(this)">bes</a></li>
+			</ul>
+		</div>
+		<div class="main">
+			<div id="a"><h1>bir</h1></div>
+			<div id="b"><h1>iki</h1></div>
+			<div id="c"><h1>uc</h1></div>
+			<div id="d"><h1>dord</h1></div>
+			<div id="e"><h1>bes</h1></div>
+		</div>
+		<div class="foot"></div>
+		<script>
+		
+		function myClick(myId) {
+			winHeight = window.innerHeight;
+			myHref=myId.getAttribute("href")
+			console.log(winHeight)
+			document.querySelector(myHref).style.height = winHeight+'px'
+		};
+		function myFunction() {
+ 
+}
+		</script>
+	</body>
+</html>

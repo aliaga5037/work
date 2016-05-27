@@ -1,0 +1,63 @@
+
+.c{
+	height: 10px;
+	width: 5px;
+	background: red;
+}
+.d{
+	height: 10px;
+	width: 2px;
+	background: red;
+}
+
+.main{
+	height: 201px;
+	width: 200px;
+	border: 20px solid black;
+	border-radius: 50%;
+	position: relative;
+	left:30%;
+}
+.clock{
+	height: 201px;
+	width: 200px;
+	border: 10px solid gray;
+	border-radius: 50%;
+	box-sizing: border-box;
+	position: absolute;
+}
+
+.deqiqe{
+	height: 110px;
+	width: 5px;
+	background: #000;
+	position: absolute;
+	left: 88px;
+	top: 25px;
+    transform-origin: 64% 60%;
+}
+
+.saat {
+    height: 70px;
+    width: 5px;
+    background: #000;
+    position: absolute;
+    left: 88px;
+    top: 39px;
+    transform: rotate(0deg);
+    transform-origin: 55% 74%;
+}
+
+.saniye {
+    height: 85px;
+    width: 2px;
+    background: #000;
+    position: absolute;
+    left: 89px;
+    top: 35px;
+    transform: rotate(0deg);
+    transform-origin: 51% 65%;
+}
+span{
+	position: absolute;
+};

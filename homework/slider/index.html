@@ -5,77 +5,171 @@
 		<link rel="stylesheet" href="main.css">
 		<script src="script.js"></script>
 	</head>
-	<body>
-	<script>
-		var images = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"]
+	<body><!-- 
+		<button id = "right">next</button>
+		<button id = "left">prev</button> -->
+		<script>
+			var images = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg","img/6.jpg","img/7.jpg","img/8.jpg","img/9.jpg"]
+			var j = 0
+			var t = 1
+			function yarat( margin, bg) {
+			var main = document.createElement("div");
+			main.setAttribute("class", "main");
+			document.body.appendChild(main);
 
-		var j = 0
+			var head = document.createElement("div");
+			head.setAttribute("id", "head");
+			main.appendChild(head);
 
-		function yarat( margin, bg) {
-		var main = document.createElement("div");
-		main.setAttribute("class", "main");
-		document.body.appendChild(main);
+			var button = document.createElement("button");
+			button.setAttribute("id", "left");
+			button.style.cssFloat = 'left'
+			button.innerHTML = "previous"
+			head.appendChild(button);
 
-		var head = document.createElement("div");
-		head.setAttribute("id", "head");
-		main.appendChild(head);		
+			var nbutton = document.createElement("button");
+			nbutton.setAttribute("id", "right");
+			nbutton.style.cssFloat = 'right'
+			nbutton.innerHTML = "next"
+			head.appendChild(nbutton);
+			document.getElementById("right").onclick = next;
+			function next() {
+				
+				if(j >images.length-1){
 
-		var button = document.createElement("button");
-		button.setAttribute("id", "left");
-		button.style.cssFloat = 'left'
-		head.appendChild(button);
-
-		var button = document.createElement("button");
-		button.setAttribute("id", "right");
-		button.style.cssFloat = 'right'
-		head.appendChild(button);
-
-		document.getElementById("right").onclick = next;
-		function next() {
-			j++
-			if(j>images.length-1){
-				j=0
+					j=1;
+				}else{j++;}
+				
+				if(t>images.length-1){
+					t=1;
+				}else{t++;}
+				move();
+				movet();
+			document.getElementById("ss").setAttribute("src", images[j-1])
+			document.getElementById("st").setAttribute("src", images[t-1])
+			console.log(j)
+			console.log(t)
 			}
-		document.getElementById("ss").setAttribute("src", images[j])
-		}
-		document.getElementById("left").onclick = prev;
-		function prev() {
-			j--
-			if(j<=1){
-				j=images.length-1
+			document.getElementById("left").onclick = prev;
+			function prev() {
+				
+				if(j < 1){
+					
+					j = parseInt(images.length-1);
+					console.log("j-in qiymeti:"+j)
+
+				}else{
+				
+					j--;
+					console.log("j-in qiymeti:"+j)
+
+				}
+				
+				if(t < 1){
+				
+					t = parseInt(images.length-1);
+					console.log("t-in qiymeti:"+t)
+
+				}else {
+
+					t--;
+					console.log("t-in qiymeti:"+t)
+					
+				}
+				movep();
+				movel();
+			document.getElementById("ss").setAttribute("src", images[j])
+			document.getElementById("st").setAttribute("src", images[t])
+			// console.log(j)
+			// console.log(t)	
 			}
-
-		document.getElementById("ss").setAttribute("src", images[j])
-		}
-
-
-
-		var himage = document.createElement("img");
-		himage.setAttribute("src",images[j]);
-		himage.setAttribute("id", "ss")
-		himage.style.width = "inherit";
-		himage.style.height = "inherit";
-		head.appendChild(himage);
-
-		var foot = document.createElement("div");
-		foot.setAttribute("id", "foot");
-		main.appendChild(foot);
-
-		for (var i = 0  ; i < images.length ; i++) {
-		var fImage = document.createElement("div");
-		fImage.setAttribute("class","fImage");
-		fImage.style.margin = margin + "px";
-		fImage.style.background = bg;
-		foot.appendChild(fImage);
-
-		var image = document.createElement("img");
-		image.setAttribute("src",images[i]);
-		image.style.width = "inherit";
-		image.style.height = "inherit";
-		fImage.appendChild(image);
+			
+			function move() {
+		var elem = document.getElementById("ss");
+		var pos = 0;
+		var id = setInterval(frame);
+		function frame() {
+			if (pos == 800) {
+				clearInterval(id);
+			} else {
+				pos += 5;
+				elem.style.left = pos + 'px';
+			}
 		}
 		}
-		yarat(8,"white");
-	</script>
+		function movet() {
+		var elem = document.getElementById("st");
+		var pos = -800;
+		var id = setInterval(frame );
+		function frame() {
+		if (pos == 0) {
+		clearInterval(id);
+		} else {
+		pos += 5;
+		elem.style.left = pos + 'px';
+		}
+		}
+		}
+		function movel() {
+		var elem = document.getElementById("ss");
+		var pos = 800;
+		var id = setInterval(frame);
+		function frame() {
+		if (pos == 0) {
+		clearInterval(id);
+		} else {
+		pos -= 5;
+		elem.style.left = pos + 'px';
+		}
+		}
+		}
+		function movep() {
+		var elem = document.getElementById("st");
+		var pos = 0;
+		var id = setInterval(frame);
+		function frame() {
+		if (pos == -800) {
+		clearInterval(id);
+		} else {
+		pos -= 5;
+		elem.style.left = pos + 'px';
+		}
+		}
+		}
+			var himage = document.createElement("img");
+			himage.setAttribute("src",images[j]);
+			himage.setAttribute("id", "ss")
+			himage.style.width = "inherit";
+			himage.style.height = "inherit";
+			head.appendChild(himage);
+
+			var himage = document.createElement("img");
+			himage.setAttribute("id", "st")
+			himage.style.width = "inherit";
+			himage.style.height = "inherit";
+			head.appendChild(himage);
+
+
+			var foot = document.createElement("div");
+			foot.setAttribute("id", "foot");
+			main.appendChild(foot);
+			for (var i = 0  ; i < images.length ; i++) {
+
+			var fa = document.createElement("a");
+			fa.setAttribute("href", "#st")
+			fa.style.margin = margin + "px";
+			fa.style.background = bg;
+			foot.appendChild(fa);
+
+			var fImage = document.createElement("img");
+			fImage.setAttribute("class","fImage");
+			fImage.setAttribute("src",images[i]);
+			fImage.style.margin = margin + "px";
+			fImage.style.background = bg;
+			fa.appendChild(fImage);
+			 }
+			}
+			yarat(8,"white");
+		</script>
 	</body>
 </html>

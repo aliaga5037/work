@@ -1,0 +1,16 @@
+#stol{
+	height: 400px;
+	width: 800px;
+	border: 1px solid black;
+	position: absolute;
+	top: 20px;
+	left:200px;
+}
+#shar{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background: red;
+	position: absolute;
+	
+}
